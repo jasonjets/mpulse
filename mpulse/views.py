@@ -1,14 +1,13 @@
 from django.shortcuts import render, redirect
 from .models import Member, Conflict
-import datetime
 import time
 from django.contrib import messages
-from django.core.files.storage import FileSystemStorage
-from django.http import JsonResponse
 from mpulse.forms import *
-from django.http import HttpResponseRedirect
-from django.core.exceptions import ValidationError
-from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
+from django.core.exceptions import ValidationError        # Unit testing/ exceptions
+from django.core.paginator import (
+    Paginator,                                            # paginator for searching members
+    EmptyPage,                                        
+    PageNotAnInteger) 
 from django.core.exceptions import ObjectDoesNotExist
 
 
