@@ -124,7 +124,6 @@ def upload(request):
         file_data = csv_file.read().decode("utf-8")
         lines = file_data.split("\n")
             
-        
         # Begin loop through CSV file lines
         for index, line in progress(enumerate(lines)):
             fields = line.split(",")
@@ -180,9 +179,9 @@ def upload(request):
 
                 # 10.A If the person is in system
                 elif duplicate == True:           # When commented this block will not allow
-                    conf = Conflict(              #duplicates. This block will sort
-                        first=fields[0],          #duplicates into another table called
-                        last=fields[1],           #"conflicts" for further handling.
+                    conf = Conflict(              # duplicates. This block will sort
+                        first=fields[0],          # duplicates into another table called
+                        last=fields[1],           # "conflicts" for further handling.
                         telephone=fields[2],
                         clientid=fields[3],
                         accountid=fields[4],)

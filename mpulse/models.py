@@ -14,7 +14,7 @@ class Member(models.Model):
 
 
 
-# Conflicts / Duplicate entries to further analyse. 
+# Conflicts / Duplicate entries to further analyze. 
 # See: mpulse/views/10.A)
 class Conflict(models.Model):
     first = models.CharField(max_length=255, blank=True)
