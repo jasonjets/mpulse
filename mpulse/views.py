@@ -1,11 +1,11 @@
-from django.shortcuts import render, redirect       
+from django.shortcuts import render, redirect             
 from .models import Member, Conflict                      # Api tables
 import time                                               # For timing system rest period                 
 from django.contrib import messages                       # Error, success messages
-from mpulse.forms import *
+from mpulse.forms import *                                # Admin/superuser if needed
 from django.core.exceptions import ValidationError        # Unit testing/ exceptions
-from django.core.paginator import (
-    Paginator,                                            # paginator for searching members
+from django.core.paginator import (                       # paginator for searching members
+    Paginator,                                            
     EmptyPage,                                        
     PageNotAnInteger) 
 
