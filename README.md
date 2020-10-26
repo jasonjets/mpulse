@@ -1,5 +1,17 @@
+# Dear mPulse management,
 
-#### mPulse Member Management
+    Thank you so much for this opportunity. I've done a ton of
+research over the weekend into the industry, company, and the CEO
+and I think they align with what I'm passionate about.
+
+I hope the api works well on your end and I look forwad to speaking soon!
+
+Best,
+Jason Betts
+    
++--------------------------------------------------------++
+
+#### mPulse Member Management Api
 - 1 . CSV Batch Member Import. 
     a. Duplicates loaded into "Conflict" section
 
