@@ -13,7 +13,6 @@ class Member(models.Model):
     accountid = models.CharField(max_length=255, null=True)
 
 
-
 # Conflicts / Duplicate entries to further analyze. 
 # See: mpulse/views/10.A)
 class Conflict(models.Model):

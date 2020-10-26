@@ -8,7 +8,8 @@ from django.core.paginator import (                       # paginator for search
     Paginator,                                            
     EmptyPage,                                        
     PageNotAnInteger) 
-from tqdm import tqdm as progress                         # Terminal progress bar
+from tqdm import tqdm as progress                         # Terminal upload progress bar
+
 
 # Home/Index
 def index(request):
@@ -25,7 +26,6 @@ def index(request):
     return render(request, 'index.html', {'members': members})
    
  
-
 # Member List 
 def list(request):
     members_list = Member.objects.all()
