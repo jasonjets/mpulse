@@ -179,7 +179,7 @@ def upload(request):
                         pass
 
                 # 10.A If the person is in system
-                elif duplicate == True:           #The above code will not allow
+                elif duplicate == True:           # When commented this block will not allow
                     conf = Conflict(              #duplicates. This block will sort
                         first=fields[0],          #duplicates into another table called
                         last=fields[1],           #"conflicts" for further handling.
