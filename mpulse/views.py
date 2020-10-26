@@ -101,6 +101,7 @@ def conflict_delete(request, id):
     # This will give the option to edit conflict 
     # user's acct or phone and save as a Member
 
+
 # Upload Sort, and Save CSV Files
 def upload(request):
     wait = 0 # Sleeper for CRUD during upload
