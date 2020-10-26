@@ -4,6 +4,9 @@ from django.contrib.auth.models import User
 from django.utils.translation import ugettext_lazy as _
 import re
  
+
+
+
  # Super User Registration
 class RegistrationForm(forms.Form):
     first_name = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder':'First Name'}))
@@ -20,6 +23,7 @@ class RegistrationForm(forms.Form):
             return self.cleaned_data['username']
         raise forms.ValidationError(_("The username already exists. Please try another one."))
 
+
     def clean_email(self):
         try:
             User.objects.get(email__iexact=self.cleaned_data['email'])
@@ -27,6 +31,7 @@ class RegistrationForm(forms.Form):
             return self.cleaned_data['email']
         raise forms.ValidationError(_("The email already exists. Please try another one."))
  
+
     def clean(self):
         if 'password1' in self.cleaned_data and 'password2' in self.cleaned_data:
             if self.cleaned_data['password1'] != self.cleaned_data['password2']:

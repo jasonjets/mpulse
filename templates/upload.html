@@ -1,16 +1,13 @@
 {% extends 'layout/app.html' %}
 {% load static %}
-{% block stylesheet %}
-    <style>
-    </style>
-{% endblock %}
 {% block body %}
 <div id="content-wrapper">
 <div class="container-fluid">
+
     <!-- Breadcrumbs-->
     <ol class="breadcrumb">
         <li class="breadcrumb-item">
-            <a href="#">Dashboard</a>
+            <a href="{% url 'home' %}">mPulse</a>
         </li>
         <li class="breadcrumb-item active">Upload</li>
     </ol>
@@ -19,12 +16,12 @@
             {{ message }}
         </div>
     {% endfor %}
+
+    
     <div class="card mb-3">
         <div class="card-header">
             <i class="fas fa-table"></i>
-
             Select a CSV file
-
             <a class="btn-sm btn btn-success" href="{% static 'sample.csv' %}"  download style="float: right">
             <span class="fa fa-download" ></span> &nbsp;MPulse Sample Data</a>
         </div>
@@ -58,15 +55,17 @@
         </form>
         </div>
         </div>
+
         <div class="card mb-3">
             <div class="card-header">
                 <i class="fas fa-table"></i>
                 
-                Conflicts
+                Review Duplicates
 
             </div>
             <div class="card-body">
                 <div class="table-responsive">
+                    
                     <table class="table table-sm" id="dataTable" width="100%" cellspacing="0">
                         <thead>
                         <tr>
@@ -75,19 +74,25 @@
                             <th>Phone Number</th>
                             <th>Account ID</th>
                             <th>Client ID</th>
+                            <th>Remove</th>
                         </tr>
                         </thead>
-                        <tbody>
-                        {% for member in members  %}
-                            <tr>   
-                                <td>{{ member.first }}</td>
-                                <td>{{ member.last }}</td>
-                                <td>{{ member.telephone }}</td>
-                                <td>{{ member.accountid }}</td>
-                                <td>{{ member.clientid }}</td>      
-                            </tr>
-                       {% endfor %}
-                        </tbody>
+                    
+                <!-- Data Columns -->
+                {% for member in memberdata %}
+                    <tr>
+                        <td>{{ member.accountid }}</td>
+                        <td>{{ member.first }}</td>
+                        <td>{{ member.last }}</td>
+                        <td>{{ member.telephone }}</td>
+                        <td>{{ member.clientid }}</td>                                 
+                        <td>
+                            <!-- Instant Edit and Delete Buttons-->
+                            <a class="btn btn-sm btn-danger" href="delete/{{ member.id }}"><span class="fa fa-trash"></span> Delete</a>
+                        </td>
+                    </tr>
+                {% endfor %}
+                </tbody>
                     </table>
                 </div>
             </div>

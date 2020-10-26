@@ -6,7 +6,7 @@ from django.core.validators import RegexValidator
 
 
 
-# Member Model
+# Member Table
 class Member(models.Model):
     first = models.CharField(max_length=255, blank=True)
     last = models.CharField(max_length=255,blank=True)
@@ -14,16 +14,15 @@ class Member(models.Model):
     clientid = models.CharField(max_length=255,unique=True, null=True)
     accountid = models.CharField(max_length=255, null=True)
 
+
+
+# Conflicts / Duplicate entries to further analyse. 
+# (Initially disabled; duplicate entries not added. 
+# See: mpulse/views/10.A)
 class Conflict(models.Model):
     first = models.CharField(max_length=255, blank=True)
     last = models.CharField(max_length=255,blank=True)
     telephone = models.CharField(max_length=10,null=True)
     clientid = models.CharField(max_length=255,null=True)
     accountid = models.CharField(max_length=255, null=True)
-
-
-
-
-    
-
 

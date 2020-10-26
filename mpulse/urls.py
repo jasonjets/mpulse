@@ -10,6 +10,7 @@ urlpatterns = [
     url(r'^edit/update/(?P<id>\d+)$', views.update, name='update'),
     url(r'^delete/(?P<id>\d+)$', views.delete, name='delete'),
     url(r'^users/delete/(?P<id>\d+)$', views.user_delete, name='user_delete'),
-    url(r'^upload/csv/$', views.upload_csv, name='upload'),
+    url(r'^upload/delete/(?P<id>\d+)$', views.conflict_delete, name='conflict_delete'),
+    url(r'^upload/$', views.upload, name='upload'),
  
 ]

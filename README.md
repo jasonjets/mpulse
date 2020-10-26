@@ -8,7 +8,7 @@
 
 # Steps for Set Up
 ``` 
- 1. git clone 
+ 1. git clone https://github.com/jasonjets/mpulse.git
 
  2.  cd app
 

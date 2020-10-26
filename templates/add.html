@@ -4,19 +4,18 @@
 
 {% block body %}
     <div id="content-wrapper">
-
         <div class="container-fluid">
             <!-- Breadcrumbs-->
             <ol class="breadcrumb">
                 <li class="breadcrumb-item">
-                    <a href="#">CRUD</a>
+                    <a href={% url 'home' %}>mPulse</a>
                 </li>
-                <li class="breadcrumb-item active">Add</li>
+                <li class="breadcrumb-item active">Create New</li>
             </ol>
             <div class="card mb-3">
                 <div class="card-header">
                     <i class="fas fa-table"></i>
-                    Crud Add
+                    Enter New Member Credentials
                 </div>
                 <div class="card-body">
                 {% for message in messages %}
@@ -30,13 +29,13 @@
                         <div class="form-row">
                             <div class="col-md-6">
                                 <div class="form-label-group">
-                                    <input type="first" class="form-control" name="first" placeholder="first" id="first" required>
+                                    <input class="form-control" name="first" id="first" required>
                                     <label for="first">First Name</label>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-label-group">
-                                    <input type="text" class="form-control" name="last" placeholder="Last Name" id="inputLast" required>
+                                    <input  class="form-control" name="last"  id="inputLast" required>
                                     <label for="last">Last Name</label>
                                 </div>
                             </div>
@@ -46,13 +45,13 @@
                         <div class="form-row">
                             <div class="col-md-6">
                                 <div class="form-label-group">
-                                    <input type="text" class="form-control" name="clientid" placeholder="clientid" id="inputdescription" required>
+                                    <input type="text" class="form-control" name="clientid" id="inputdescription" required>
                                     <label for="clientid">Client ID</label>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-label-group">
-                                    <input class="form-control" type="tel" name="accountid" placeholder="Mobile Number" id="inputMobile">
+                                    <input class="form-control" type="tel" name="accountid"  id="inputMobile">
                                     <label for="accountid">Account ID</label>
                                 </div>
                             </div>
