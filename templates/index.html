@@ -50,7 +50,7 @@
         <div class="card text-white bg-success o-hidden h-100">
             <div class="card-body">
                 <div class="card-body-icon">
-                    <i class="fas fa-fw fa-list"></i>
+                    <i class="fas fa-fw fa-shopping-cart"></i>
                 </div>
                 <div class="mr-5">Manually Add Members</div>
             </div>
@@ -77,8 +77,35 @@
     </span>
             </a>              <!--End of Icons-->
         </div>  
+        
     </div>
 </div>
+ <div class="table-responsive">
+        
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <thead>
+                <tr>
+                    <th>Account ID</th>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Mobile Number</th>
+                    <th>Client ID</th>
+                </tr>
+                </thead>
+                <tbody>
+                <!-- Data Columns -->
+                {% for member in members %}
+                    <tr>
+                        <td>{{ member.accountid }}</td>
+                        <td>{{ member.first }}</td>
+                        <td>{{ member.last }}</td>
+                        <td>{{ member.telephone }}</td>
+                        <td>{{ member.clientid }}</td>                                 
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
 </div>
 {% endblock %}
 {% block javascript %}

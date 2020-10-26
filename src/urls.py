@@ -8,7 +8,7 @@ from django.shortcuts import render
 
 # Page not found handler
 def handler404(request, exception):
-    print('True')
+    #print('True')
     return render(request, '404.html')
 
 

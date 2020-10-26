@@ -12,7 +12,18 @@ from tqdm import tqdm as progress                         # Terminal progress ba
 
 # Home/Index
 def index(request):
-    return render(request, 'index.html')
+    members_list = Member.objects.all()
+    # define how many objects can exist in the member list
+    paginator = Paginator(members_list, len(members_list)+10) 
+    page = request.GET.get('page') 
+    try:
+        members = paginator.page(page)
+    except PageNotAnInteger:
+        members = paginator.page(1)
+    except EmptyPage:
+        members = paginator.page(paginator.num_pages)
+    return render(request, 'index.html', {'members': members})
+   
  
 
 # Member List 
@@ -103,7 +114,7 @@ def conflict_delete(request, id):
 # Upload Sort, and Save CSV Files
 def upload(request):
     wait = 0 # Sleeper for CRUD during upload
-    accountids = [] # Holds current document "unique=True" fiels
+    accountids = [] # Holds current document "unique=True" fields
     added = 0
 
     if 'GET' == request.method:
