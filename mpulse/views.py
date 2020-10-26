@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from .models import Member, Conflict
-import datetime, time
+import datetime
+import time
 from django.contrib import messages
 from django.core.files.storage import FileSystemStorage
 from django.http import JsonResponse
@@ -8,9 +9,8 @@ from mpulse.forms import *
 from django.http import HttpResponseRedirect
 from django.core.exceptions import ValidationError
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
-import multiprocessing
-import time
 from django.core.exceptions import ObjectDoesNotExist
+
 
 # Home/Index
 def index(request):
@@ -61,7 +61,7 @@ def edit(request, id):
     return render(request, 'edit.html', context)
 
 
-# Update Member Function
+# Update "Member" Function
 def update(request, id):
     try:
         member = Member.objects.get(id=id)
@@ -97,9 +97,11 @@ def conflict_delete(request, id):
     except:
         messages.error(request, 'Member not in system')
     return redirect('/upload')
+    # Next, add conflict_edit and conflict_update 
+    # This will give the option to edit conflict 
+    # user's acct or phone and save as a Member
 
-
-# Upload CSV Files
+# Upload Sort, and Save CSV Files
 def upload(request):
     wait = 0 # Sleeper for CRUD during upload
     accountids = [] # Holds current document "unique=True" fiels
@@ -193,7 +195,6 @@ def upload(request):
     except Exception as e:
         messages.error(request, "Unable to upload file. " + e)
         return redirect('/upload')
-
 
 
 # Super User

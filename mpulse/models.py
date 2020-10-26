@@ -17,7 +17,6 @@ class Member(models.Model):
 
 
 # Conflicts / Duplicate entries to further analyse. 
-# (Initially disabled; duplicate entries not added. 
 # See: mpulse/views/10.A)
 class Conflict(models.Model):
     first = models.CharField(max_length=255, blank=True)
@@ -25,4 +24,5 @@ class Conflict(models.Model):
     telephone = models.CharField(max_length=10,null=True)
     clientid = models.CharField(max_length=255,null=True)
     accountid = models.CharField(max_length=255, null=True)
+
 

@@ -1,22 +1,25 @@
 import os
 
-
-
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
+
+# Reminder** Set env variables prior to deploy ***
+# Reminder** Set env variables prior to deploy ***
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = '9&)ea$d21d2+ri!bd@0w*6p23=t^1vj!c)m-2x(kv^9ev4g8n8'
 
 
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+# Debug will return 404 page when "False"
+# Set to True for debugging.
+DEBUG = False
 
 
-ALLOWED_HOSTS = ['*','https://mpulsehealth.herokuapp.com/']
+# Allows for any URL at the moment.
+ALLOWED_HOSTS = ['*']
 
 
-# MPULSE APP :)
+# MPULSE APP 
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -58,6 +61,7 @@ TEMPLATES = [
     },
 ]
 
+
 WSGI_APPLICATION = 'src.wsgi.application'
 
 
@@ -86,7 +90,7 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 
-# Basid Django Settings
+# Basic Django Settings
 LANGUAGE_CODE = 'en-us'
 TIME_ZONE = 'PST8PDT'
 USE_I18N = True
@@ -94,8 +98,9 @@ USE_L10N = True
 USE_TZ = True
 
 
-
-STATIC_URL = 's3://elasticbeanstalk-us-west-2-686017726002/.elasticbeanstalk'
+# Reminder** Set env variables prior to deploy ***
+# Reminder** Set env variables prior to deploy ***
+#STATIC_URL = 's3://elasticbeanstalk-us-west-2-686017726002/.elasticbeanstalk'
 
 LOGIN_URL = '/login/'
 
