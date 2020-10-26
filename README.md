@@ -40,6 +40,5 @@ Jason Betts
 
  7. Empty tables for re-test $python manage.py flush
 
-May need $python manage.py migrate --run-syncdb
 
 ```
