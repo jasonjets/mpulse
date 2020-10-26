@@ -8,8 +8,7 @@ from django.core.paginator import (                       # paginator for search
     Paginator,                                            
     EmptyPage,                                        
     PageNotAnInteger) 
-
-
+from tqdm import tqdm as progress                         # Terminal progress bar
 
 # Home/Index
 def index(request):
@@ -106,11 +105,11 @@ def upload(request):
     wait = 0 # Sleeper for CRUD during upload
     accountids = [] # Holds current document "unique=True" fiels
     added = 0
+
     if 'GET' == request.method:
         memberdata = Conflict.objects.all()
         context = {'memberdata': memberdata}
         return render(request, 'upload.html', context)
-
     try:
         # First Condition: Make sure there is a file
         csv_file = request.FILES["csv_file"]
@@ -124,10 +123,10 @@ def upload(request):
         # Prepare Data for parsing
         file_data = csv_file.read().decode("utf-8")
         lines = file_data.split("\n")
-        
             
+        
         # Begin loop through CSV file lines
-        for index, line in enumerate(lines):
+        for index, line in progress(enumerate(lines)):
             fields = line.split(",")
             if index == 0:
                 # Third Condition: Check if top row CVS fields are as expected

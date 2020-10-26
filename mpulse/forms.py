@@ -5,8 +5,6 @@ from django.utils.translation import ugettext_lazy as _
 import re
  
 
-
-
  # Super User Registration
 class RegistrationForm(forms.Form):
     first_name = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder':'First Name'}))

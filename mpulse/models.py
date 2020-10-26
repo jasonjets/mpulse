@@ -4,8 +4,6 @@ from django.db.models import Count, Max
 from django.db import models
 from django.core.validators import RegexValidator
 
-
-
 # Member Table
 class Member(models.Model):
     first = models.CharField(max_length=255, blank=True)
